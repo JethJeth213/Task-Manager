@@ -254,7 +254,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Render tasks
         if (filteredTasks.length === 0) {
-            taskList.innerHTML = '<li class="no-tasks">No tasks found</li>';
+            taskList.innerHTML = `
+                <li class="no-tasks">
+                    <i class="fas fa-tasks"></i>
+                    <p>No tasks found. Add one to get started!</p>
+                </li>
+            `;
             return;
         }
         
