@@ -217,7 +217,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 task.title.toLowerCase().includes(searchTerm) || 
                 (task.description && task.description.toLowerCase().includes(searchTerm)))
         }
-        
+        const clearSearchBtn = document.querySelector('.clear-search');
+        taskSearch.addEventListener('input', () => {
+            clearSearchBtn.style.display = taskSearch.value ? 'block' : 'none';
+        });
+        clearSearchBtn.addEventListener('click', () => {
+            taskSearch.value = '';
+            clearSearchBtn.style.display = 'none';
+            renderTaskList();
+        });
+
         // Apply view filter
         if (currentView === 'today') {
             const today = new Date().toISOString().split('T')[0];
