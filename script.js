@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.querySelector('.close-btn');
     const taskList = document.getElementById('task-list');
     const taskSearch = document.getElementById('task-search');
+    const clearSearchBtn = document.querySelector('.clear-search');
     const sortBy = document.getElementById('sort-by');
     const filterBy = document.getElementById('filter-by');
     const categoryList = document.getElementById('category-list');
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const completedTasksCountElement = document.getElementById('completed-tasks-count');
     const overdueTasksElement = document.getElementById('overdue-tasks');
     const tasksHeader = document.getElementById('tasks-header');
+    
     
     // Sidebar buttons
     const allTasksBtn = document.getElementById('all-tasks');
@@ -35,10 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
     init();
 
     function init() {
-        renderTaskList();
-        renderCategories();
-        updateStats();
-        setupEventListeners();
+    renderTaskList();
+    renderCategories();
+    updateStats();
+    setupEventListeners();
+    setupSearch(); // Add this line
     }
 
     function setupEventListeners() {
@@ -49,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         taskForm.addEventListener('submit', handleTaskSubmit);
 
         // Search and filters
-        taskSearch.addEventListener('input', () => renderTaskList());
         sortBy.addEventListener('change', () => renderTaskList());
         filterBy.addEventListener('change', () => renderTaskList());
 
@@ -84,6 +86,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    function setupSearch() {
+    taskSearch.addEventListener('input', () => {
+        clearSearchBtn.style.display = taskSearch.value ? 'block' : 'none';
+        renderTaskList();
+    });
+    
+ clearSearchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        taskSearch.value = '';
+        clearSearchBtn.style.display = 'none';
+        renderTaskList();
+        taskSearch.focus();
+    });
+}
 
     function setActiveView(view) {
         currentView = view;
@@ -215,17 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (searchTerm) {
             filteredTasks = filteredTasks.filter(task => 
                 task.title.toLowerCase().includes(searchTerm) || 
-                (task.description && task.description.toLowerCase().includes(searchTerm)))
+                (task.description && task.description.toLowerCase().includes(searchTerm))
+            );
         }
-        const clearSearchBtn = document.querySelector('.clear-search');
-        taskSearch.addEventListener('input', () => {
-            clearSearchBtn.style.display = taskSearch.value ? 'block' : 'none';
-        });
-        clearSearchBtn.addEventListener('click', () => {
-            taskSearch.value = '';
-            clearSearchBtn.style.display = 'none';
-            renderTaskList();
-        });
 
         // Apply view filter
         if (currentView === 'today') {
