@@ -8,7 +8,7 @@
     --warning-color: #f8961e;
     --light-color: #f8f9fa;
     --dark-color: #212529;
-    --gray-color: #;
+    --gray-color: #adb5bd;
     --light-gray: #e9ecef;
     --gray: #4a4d50;
     --border-radius: 8px;
@@ -534,4 +534,14 @@ body {
         flex-direction: column;
         gap: 0;
     }
+}
+
+.no-tasks {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray-color);
+}
+.no-tasks i {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
