@@ -1,17 +1,18 @@
 :root {
-    --primary-color: #4361ee;
-    --primary-dark: #3a56d4;
-    --secondary-color: #3f37c9;
-    --accent-color: #4895ef;
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
     --danger-color: #f72585;
     --success-color: #4cc9f0;
     --warning-color: #f8961e;
     --light-color: #f8f9fa;
     --dark-color: #212529;
-    --gray-color: #6c757d;
+    --gray-color: #;
     --light-gray: #e9ecef;
+    --gray: #4a4d50;
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 6px #1b1d1e;
     --transition: all 0.3s ease;
 }
 
@@ -23,9 +24,9 @@
 }
 
 body {
-    background-color: #f5f7fa;
+    background-color: var(--gray);
     color: var(--dark-color);
-    line-height: 1.6;
+
 }
 
 .container {
@@ -38,7 +39,7 @@ body {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px 0;
-    background-color: white;
+    background-color: var(--dark-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
@@ -61,16 +62,17 @@ body {
 
 .sidebar {
     flex: 0 0 250px;
-    background-color: white;
+    background-color: var(--dark-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 20px;
+    color: var(--light-gray);
     height: fit-content;
 }
 
 .main-content {
     flex: 1;
-    background-color: white;
+    background-color: var(--dark-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 20px;
@@ -85,7 +87,7 @@ body {
     margin-bottom: 10px;
     border: none;
     background-color: transparent;
-    color: var(--dark-color);
+    color: var(--light-gray);
     text-align: left;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -110,7 +112,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--dark-color);
+    color: var(--light-color);
 }
 
 #category-list {
@@ -130,11 +132,11 @@ body {
 }
 
 #category-list li:hover {
-    background-color: var(--light-gray);
+    background-color: var(--primary-dark);
 }
 
 #category-list li.active {
-    background-color: var(--light-gray);
+    background-color: var(--primary-dark);
     font-weight: bold;
 }
 
@@ -244,13 +246,13 @@ body {
 .stat-card {
     flex: 1;
     padding: 15px;
-    background-color: var(--light-color);
+    background-color: var(--primary-dark);
     border-radius: var(--border-radius);
     text-align: center;
 }
 
 .stat-card h4 {
-    color: var(--gray-color);
+    color: var(--light-color);
     font-size: 0.9rem;
     margin-bottom: 5px;
 }
@@ -263,7 +265,7 @@ body {
 
 .tasks-container h2 {
     margin-bottom: 20px;
-    color: var(--dark-color);
+    color: var(--primary-dark);
 }
 
 #task-list {
@@ -275,7 +277,7 @@ body {
     align-items: center;
     padding: 15px;
     margin-bottom: 10px;
-    background-color: var(--light-color);
+    background-color: var(--primary-dark);
     border-radius: var(--border-radius);
     transition: var(--transition);
     border-left: 4px solid transparent;
