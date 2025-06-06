@@ -183,9 +183,9 @@ body {
     box-shadow: var(--box-shadow);
 }
 .app-button{
-    position: fixed;
+    position: absolute;
     top: 8%;
-    right: 15%;
+    right: 20%;
     padding: .5rem 1rem;
     border-radius: .5rem;
     border: none;
